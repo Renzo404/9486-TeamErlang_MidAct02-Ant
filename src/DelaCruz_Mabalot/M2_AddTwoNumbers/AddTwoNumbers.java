@@ -6,13 +6,12 @@ import java.util.List;
 public class AddTwoNumbers {
 
     public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        public int val;
+        public ListNode next;
+        public ListNode() {}
+        public ListNode(int val) { this.val = val; }
+        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
-
     /**
      * Adds two numbers represented by non-empty linked lists. The digits are stored
      * in reverse order, and each of their nodes contains a single digit.
