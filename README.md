@@ -27,10 +27,10 @@ The centralized `build.xml` file is configured to handle all project workflow st
 
 ### Key Targets
 
-| Target | Description |
-| :--- | :--- |
-| `build` | Runs the full sequence: **compile**, **javadoc**, and **package**. |
-| `execute-main` | Executes the `MasterTestRunner` to run all solution test cases. |
+| Target | Description                                                              |
+| :--- |:-------------------------------------------------------------------------|
+| `build` | Runs the full sequence: **compile**, **javadoc**, and **package**.       |
+| `execute-main` | Executes the `MainMenu` to run all solution test cases.                  |
 | `execute-single` | Runs a specific class: `ant execute-single -Dclass=MyPackage.MySolution` |
 
 ---

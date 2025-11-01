@@ -60,7 +60,7 @@ public class AddTwoNumbers {
     }
 
     /** Creates a linked list from an integer array. */
-    private static ListNode createList(int[] arr) {
+    public static ListNode createList(int[] arr) {
         ListNode dummy = new ListNode(0);
         ListNode current = dummy;
         for (int val : arr) {
@@ -71,7 +71,7 @@ public class AddTwoNumbers {
     }
 
     /** Converts a linked list to a string representation. */
-    private static String listToString(ListNode head) {
+    public static String listToString(ListNode head) {
         if (head == null) return "[]";
         StringBuilder sb = new StringBuilder("[");
         ListNode current = head;
