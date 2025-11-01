@@ -13,57 +13,6 @@ public class AddTwoNumbers {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
-    public static void main(String[] args) {
-        AddTwoNumbers solver = new AddTwoNumbers();
-
-        List<int[]> nums1List = new ArrayList<>();
-        nums1List.add(new int[]{2, 4, 3});
-        nums1List.add(new int[]{0});
-        nums1List.add(new int[]{9, 9, 9, 9, 9, 9, 9});
-
-        List<int[]> nums2List = new ArrayList<>();
-        nums2List.add(new int[]{5, 6, 4});
-        nums2List.add(new int[]{0});
-        nums2List.add(new int[]{9, 9, 9, 9});
-
-        List<int[]> expectedArrayList = new ArrayList<>();
-        expectedArrayList.add(new int[]{7, 0, 8});
-        expectedArrayList.add(new int[]{0});
-        expectedArrayList.add(new int[]{8, 9, 9, 9, 0, 0, 0, 1});
-
-
-        System.out.println("\n--- Add Two Numbers Tests (Linked List Sum) ---");
-
-        System.out.printf("%-15s | %-15s | %-25s | %-25s | %-5s\n",
-                "Input 1 (Rev)", "Input 2 (Rev)", "Expected Output (Truncated)", "Actual Output (Truncated)", "Result");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-
-        for (int i = 0; i < nums1List.size(); i++) {
-
-            ListNode l1 = createList(nums1List.get(i));
-            ListNode l2 = createList(nums2List.get(i));
-            ListNode expectedNode = createList(expectedArrayList.get(i));
-
-            ListNode actualNode = solver.addTwoNumbers(l1, l2);
-
-            String expectedStrFull = listToString(expectedNode);
-            String actualStrFull = listToString(actualNode);
-
-            String inputStr1 = truncateString(listToString(l1), 15);
-            String inputStr2 = truncateString(listToString(l2), 15);
-            String expectedStrDisplay = truncateString(expectedStrFull, 25);
-            String actualStrDisplay = truncateString(actualStrFull, 25);
-
-            boolean passed = compareLists(expectedNode, actualNode);
-            String resultStatus = passed ? "PASS" : "FAIL";
-
-            System.out.printf("%-15s | %-15s | %-27s | %-25s | %-5s\n",
-                    inputStr1, inputStr2, expectedStrDisplay, actualStrDisplay, resultStatus);
-        }
-
-        System.out.println("----------------------------------------------------------------------------------------------------\n");
-    }
-
     /**
      * Adds two numbers represented by non-empty linked lists. The digits are stored
      * in reverse order, and each of their nodes contains a single digit.

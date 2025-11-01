@@ -1,40 +1,6 @@
 package DelaCruz_Mabalot.E28_FindTheIndexOfTheFirstOccurrenceInAString;
 
 public class FindTheIndexOfTheFirstOccurrenceInAString {
-    public static void main(String[] args) {
-        FindTheIndexOfTheFirstOccurrenceInAString solver = new FindTheIndexOfTheFirstOccurrenceInAString();
-
-        String[][] testInputs = {
-                {"sadbutsad", "sad"},
-                {"leetcode", "leeto"},
-                {"mississippi", "issip"}
-        };
-        int[] expectedResults = {0, -1, 4};
-
-        System.out.println("\n--- Find the Index of the First Occurrence Tests ---");
-
-        System.out.printf("%-30s | %-10s | %-10s | %-10s\n",
-                "Input (Haystack, Needle)", "Expected", "Actual", "Result");
-        System.out.println("------------------------------------------------------------------");
-
-        for (int i = 0; i < testInputs.length; i++) {
-            String haystack = testInputs[i][0];
-            String needle = testInputs[i][1];
-
-            int expected = expectedResults[i];
-            int actual = solver.strStr(haystack, needle);
-
-            String resultStatus = (actual == expected) ? "PASS" : "FAIL";
-
-            String inputStr = String.format("(\"%s\", \"%s\")", haystack, needle);
-
-            System.out.printf("%-30s | %-10d | %-10d | %-10s\n",
-                    inputStr, expected, actual, resultStatus);
-        }
-
-        System.out.println("------------------------------------------------------------------\n");
-    }
-
     /**
      * Finds the index of the first occurrence of the `needle` string within the `haystack` string. This implementation
      * uses a simple sliding window and substring comparison.

@@ -1,38 +1,6 @@
 package DelaCruz_Mabalot.E14_LongestCommonPrefix;
 
 public class LongestCommonPrefix {
-
-    public static void main(String[] args) {
-        LongestCommonPrefix solver = new LongestCommonPrefix();
-
-        String[][] testInputs = {
-                {"flower", "flow", "flight"},
-                {"dog", "racecar", "car"}
-        };
-        String[] expectedResults = {"fl", ""};
-
-        System.out.println("\n--- Longest Common Prefix Tests ---");
-
-        System.out.printf("%-25s | %-8s | %-8s | %-5s\n",
-                "Input String Array", "Expected", "Actual", "Result");
-        System.out.println("---------------------------------------------------------");
-
-        for (int i = 0; i < testInputs.length; i++) {
-            String[] strs = testInputs[i];
-            String inputStr = java.util.Arrays.toString(strs);
-
-            String expected = expectedResults[i];
-            String actual = solver.longestCommonPrefix(strs);
-
-            String resultStatus = actual.equals(expected) ? "PASS" : "FAIL";
-
-            System.out.printf("%-25s | %-8s | %-8s | %-5s\n",
-                    inputStr, expected, actual, resultStatus);
-        }
-
-        System.out.println("---------------------------------------------------------\n");
-    }
-
     /**
      * Finds the longest common prefix string amongst an array of strings. The method uses a horizontal scanning
      * approach: it starts with the first string as the prefix and iteratively shortens it until it matches the start

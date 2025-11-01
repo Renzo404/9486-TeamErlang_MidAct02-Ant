@@ -3,46 +3,6 @@ package DelaCruz_Mabalot.H4_MedianOfTwoSortedArrays;
 import java.util.Arrays;
 
 public class MedianOfTwoSortedArrays {
-    public static void main(String[] args) {
-        MedianOfTwoSortedArrays solver = new MedianOfTwoSortedArrays();
-
-        int[][] nums1Inputs = {
-                {1, 3},
-                {1, 2}
-        };
-        int[][] nums2Inputs = {
-                {2},
-                {3, 4}
-        };
-
-        double[] expectedResults = {2.0, 2.5};
-
-        System.out.println("\n--- Median of Two Sorted Arrays Tests ---");
-
-        System.out.printf("%-20s | %-20s | %-10s | %-10s | %-10s\n",
-                "Input (nums1)", "Input (nums2)", "Expected", "Actual", "Result");
-        System.out.println("------------------------------------------------------------------------------");
-
-        for (int i = 0; i < nums1Inputs.length; i++) {
-            int[] nums1 = nums1Inputs[i];
-            int[] nums2 = nums2Inputs[i];
-
-            double expected = expectedResults[i];
-            double actual = solver.findMedianSortedArrays(nums1, nums2);
-
-            boolean passed = Math.abs(actual - expected) < 1e-9;
-            String resultStatus = passed ? "PASS" : "FAIL";
-
-            String inputStr1 = Arrays.toString(nums1);
-            String inputStr2 = Arrays.toString(nums2);
-
-            System.out.printf("%-20s | %-20s | %-10.1f | %-10.1f | %-10s\n",
-                    inputStr1, inputStr2, expected, actual, resultStatus);
-        }
-
-        System.out.println("------------------------------------------------------------------------------\n");
-    }
-
     /**
      * Finds the median of two sorted arrays, `nums1` and `nums2`, using a binary search approach to achieve
      * O(log(min(m, n))) time complexity, where m and n are the lengths of the arrays. The method ensures the smaller
