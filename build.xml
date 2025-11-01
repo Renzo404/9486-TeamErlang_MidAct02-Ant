@@ -30,7 +30,21 @@
     </target>
 
     <!-- ================================= 3. COMPILATION TASKS ================================= -->
+    <!-- Compile the entire code base -->
+    <target name="compile" depends="init" description="Compiles the entire codebase.">
+        <echo message="Compiling all source files..."/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" includeantruntime="false"/>
+    </target>
 
+    <!-- Compile only a given source code -->
+    <!-- Usage: ant compile-file -Dfile=path/to/SingleFile.java -->
+    <target name="compile-file" depends="init" description="Compiles a single file supplied by the 'file' property">
+        <fail unless="file" message="You must supply the source 'file' property."/>
+        <echo message="Compiling single file: ${file}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" includeantruntime="false">
+            <include name="${file}"/>
+        </javac>
+    </target>
 
     <!-- ================================= 4. EXECUTION TASKS ================================= -->
 
