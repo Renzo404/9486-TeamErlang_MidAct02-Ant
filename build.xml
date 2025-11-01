@@ -6,14 +6,15 @@
     <property name="build.dir" value="build"/>
     <property name="dist.dir" value="dist"/>
     <property name="doc.dir" value="doc"/>
+    <property name="lib.dir" value="target/dependency"/>
 
-    <property name="main.class.name" value="MasterTestRunner"/>
-    <property name="class" value="MasterTestRunner"/>
+    <property name="main.class.name" value="MainMenu"/>
+    <property name="class" value="MainMenu"/>
     <property name="jar.name.classes" value="LeetCodeSolutions.jar"/>
     <property name="jar.name.docs" value="LeetCodeDocs.jar"/>
 
-    <path id="master.classpath">
-        <pathelement location="${build.dir}"/>
+    <path id="project.classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
     </path>
 
     <!-- ================================= 2. MISCELLANEOUS TASKS (Clean & Init) ================================= -->
@@ -33,7 +34,9 @@
     <!-- Compile the entire code base -->
     <target name="compile" depends="init" description="Compiles the entire codebase.">
         <echo message="Compiling all source files..."/>
-        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" includeantruntime="false"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" includeantruntime="false">
+            <classpath refid="project.classpath"/>
+        </javac>
     </target>
 
     <!-- Compile only a given source code -->
