@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AddTwoNumbersTest {
+    private final AddTwoNumbers solver = new AddTwoNumbers();
 
     private AddTwoNumbers.ListNode createList(int[] values) {
         AddTwoNumbers.ListNode dummy = new AddTwoNumbers.ListNode(0);
@@ -25,8 +26,6 @@ class AddTwoNumbersTest {
 
     @Test
     void testAddTwoNumbers_basicCases() {
-        AddTwoNumbers solver = new AddTwoNumbers();
-
         AddTwoNumbers.ListNode l1 = createList(new int[]{2, 4, 3});
         AddTwoNumbers.ListNode l2 = createList(new int[]{5, 6, 4});
         AddTwoNumbers.ListNode expected = createList(new int[]{7, 0, 8});
@@ -36,8 +35,6 @@ class AddTwoNumbersTest {
 
     @Test
     void testAddTwoNumbers_withCarryOver() {
-        AddTwoNumbers solver = new AddTwoNumbers();
-
         AddTwoNumbers.ListNode l1 = createList(new int[]{9, 9, 9, 9, 9, 9, 9});
         AddTwoNumbers.ListNode l2 = createList(new int[]{9, 9, 9, 9});
         AddTwoNumbers.ListNode expected = createList(new int[]{8, 9, 9, 9, 0, 0, 0, 1});
@@ -47,8 +44,6 @@ class AddTwoNumbersTest {
 
     @Test
     void testAddTwoNumbers_zeroCase() {
-        AddTwoNumbers solver = new AddTwoNumbers();
-
         AddTwoNumbers.ListNode l1 = createList(new int[]{0});
         AddTwoNumbers.ListNode l2 = createList(new int[]{0});
         AddTwoNumbers.ListNode expected = createList(new int[]{0});
