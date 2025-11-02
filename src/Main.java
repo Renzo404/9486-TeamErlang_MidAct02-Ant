@@ -1,77 +1,122 @@
-// Import all the solution classes from their respective sub-packages
-import DelaCruz_Mabalot.E14_LongestCommonPrefix.LongestCommonPrefix;
-import DelaCruz_Mabalot.E26_RemoveDuplicatesFromSortedArray.RemoveDuplicatesFromSortedArray;
-import DelaCruz_Mabalot.E28_FindTheIndexOfTheFirstOccurrenceInAString.FindTheIndexOfTheFirstOccurrenceInAString;
-import DelaCruz_Mabalot.H4_MedianOfTwoSortedArrays.MedianOfTwoSortedArrays;
-import DelaCruz_Mabalot.M2_AddTwoNumbers.AddTwoNumbers;
-import DelaCruz_Mabalot.M3_LongestSubstringWithoutRepeatingCharacters.LongestSubstringWithoutRepeatingCharacters;
+import org.junit.platform.engine.support.descriptor.MethodSource;
+import org.junit.platform.launcher.Launcher;
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.TestIdentifier;
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
+import org.junit.platform.launcher.core.LauncherFactory;
+import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
+import org.junit.platform.launcher.listeners.TestExecutionSummary;
 
-import java.util.Arrays;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectPackage;
 /**
- * Main application class to demonstrate the team's LeetCode solutions for ITCS 311L.
- * This class sequentially runs and prints the output for each solution.
- * It serves as the designated main file for the Ant build script's 'run' target.
+ * An automated JUnit 5 test runner for the ITCS 311L course project.
+ * This class uses the JUnit Platform Launcher API to programmatically discover,
+ * execute, and report on all test classes found within the {@code test.java} package.
+ * It provides a detailed, formatted summary of the test results to the console.
  */
 public class Main {
     public static void main(String[] args) {
-        // Instantiate all the solver classes
-        LongestCommonPrefix solver14 = new LongestCommonPrefix();
-        RemoveDuplicatesFromSortedArray solver26 = new RemoveDuplicatesFromSortedArray();
-        FindTheIndexOfTheFirstOccurrenceInAString solver28 = new FindTheIndexOfTheFirstOccurrenceInAString();
-        MedianOfTwoSortedArrays solverH4 = new MedianOfTwoSortedArrays();
-        AddTwoNumbers solverM2 = new AddTwoNumbers();
-        LongestSubstringWithoutRepeatingCharacters solverM3 = new LongestSubstringWithoutRepeatingCharacters();
-
         System.out.println("\n=======================================================");
-        System.out.println("  ITCS 311L - LeetCode Solutions Demonstrator");
+        System.out.println("   ITCS 311L - Automated JUnit Test Runner");
         System.out.println("=======================================================\n");
 
-        System.out.println("---[ Running: E14 - Longest Common Prefix ]----------");
-        String[] strs = {"flower", "flow", "flight"};
-        System.out.println("Input: " + Arrays.toString(strs));
-        String prefix = solver14.longestCommonPrefix(strs);
-        System.out.println("Output (Prefix): \"" + prefix + "\"\n");
+        // Listener to generate the final summary report
+        SummaryGeneratingListener summaryListener = new SummaryGeneratingListener();
 
-        System.out.println("---[ Running: E26 - Remove Duplicates ]--------------");
-        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        System.out.println("Input: " + Arrays.toString(nums));
-        int k = solver26.removeDuplicates(nums);
-        System.out.println("Output (k): " + k);
-        System.out.println("Modified Array (first k elements): " + Arrays.toString(Arrays.copyOf(nums, k)) + "\n");
+        // Custom listener to collect all test identifiers
+        TestIdentifierCollector collectorListener = new TestIdentifierCollector();
 
-        System.out.println("---[ Running: E28 - Find First Occurrence ]----------");
-        String haystack = "sadbutsad", needle = "sad";
-        System.out.println("Haystack: \"" + haystack + "\", Needle: \"" + needle + "\"");
-        int index = solver28.strStr(haystack, needle);
-        System.out.println("Output (Index): " + index + "\n");
+        // 1. Create a launcher and register both listeners
+        Launcher launcher = LauncherFactory.create();
+        launcher.registerTestExecutionListeners(summaryListener);
+        launcher.registerTestExecutionListeners(collectorListener);
 
-        System.out.println("---[ Running: H4 - Median of Two Sorted Arrays ]-----");
-        int[] nums1 = {1, 3}, nums2 = {2, 4};
-        System.out.println("Input nums1: " + Arrays.toString(nums1));
-        System.out.println("Input nums2: " + Arrays.toString(nums2));
-        double median = solverH4.findMedianSortedArrays(nums1, nums2);
-        System.out.println("Output (Median): " + median + "\n");
+        // 2. Discover all tests in the "test.java" package
+        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
+                .selectors(
+                        selectPackage("test.java")
+                )
+                .build();
 
-        System.out.println("---[ Running: M2 - Add Two Numbers ]-----------------");
-        // Assuming helper methods in AddTwoNumbers (createList, listToString) are public static
-        int[] numArr1 = {2, 4, 3};
-        int[] numArr2 = {5, 6, 4};
-        AddTwoNumbers.ListNode l1 = AddTwoNumbers.createList(numArr1);
-        AddTwoNumbers.ListNode l2 = AddTwoNumbers.createList(numArr2);
-        System.out.println("Input l1: " + AddTwoNumbers.listToString(l1) + " (Represents 342)");
-        System.out.println("Input l2: " + AddTwoNumbers.listToString(l2) + " (Represents 465)");
-        AddTwoNumbers.ListNode resultNode = solverM2.addTwoNumbers(l1, l2);
-        System.out.println("Output (Sum): " + AddTwoNumbers.listToString(resultNode) + " (Represents 807)\n");
+        System.out.println("Discovering and running tests...\n");
 
-        System.out.println("---[ Running: M3 - Longest Substring ]---------------");
-        String s = "abcabcbb";
-        System.out.println("Input: \"" + s + "\"");
-        int length = solverM3.lengthOfLongestSubstring(s);
-        System.out.println("Output (Length): " + length + "\n");
+        // 3. Execute the tests and measure duration
+        Instant startTime = Instant.now();
+        launcher.execute(request);
+        Instant endTime = Instant.now();
+        long duration = Duration.between(startTime, endTime).toMillis();
+
+        // 4. Print the detailed results
+        printDetailedSummary(summaryListener.getSummary(), collectorListener.getTestIdentifiers(), duration);
+    }
+
+    // Helper to get a simple class name from a fully qualified name
+    private static String getSimpleClassName(String fqcn) {
+        if (fqcn == null || fqcn.isEmpty()) return "UnknownClass";
+        int lastDot = fqcn.lastIndexOf('.');
+        return (lastDot > 0) ? fqcn.substring(lastDot + 1) : fqcn;
+    }
+
+    private static void printDetailedSummary(TestExecutionSummary summary, Collection<TestIdentifier> allTests, long duration) {
+        System.out.println("=======================================================");
+        System.out.println("                     Test Results                      ");
+        System.out.println("=======================================================");
+
+        String totalTime = String.format("%.3f s", duration / 1000.0);
+        System.out.printf("Finished in: %s\n", totalTime);
+        System.out.printf("Summary: %d tests found | %d succeeded | %d failed | %d aborted\n",
+                summary.getTestsFoundCount(),
+                summary.getTestsSucceededCount(),
+                summary.getTestsFailedCount(),
+                summary.getTestsAbortedCount());
+        System.out.println("-------------------------------------------------------\n");
+
+        var failedTestIds = summary.getFailures().stream()
+                .map(TestExecutionSummary.Failure::getTestIdentifier)
+                .collect(Collectors.toSet());
+
+        var testsByClass = allTests.stream()
+                .filter(TestIdentifier::isTest)
+                .collect(Collectors.groupingBy(id ->
+                        id.getSource()
+                                .filter(MethodSource.class::isInstance)
+                                .map(MethodSource.class::cast)
+                                .map(MethodSource::getClassName)
+                                .orElse("UnknownClass")
+                ));
+
+        testsByClass.forEach((className, tests) -> {
+            System.out.println("Results for: " + getSimpleClassName(className));
+            for (TestIdentifier test : tests) {
+                if (failedTestIds.contains(test)) {
+                    String reason = summary.getFailures().stream()
+                            .filter(f -> f.getTestIdentifier().equals(test))
+                            .findFirst()
+                            .map(f -> f.getException().getMessage())
+                            .orElse("Unknown error");
+
+                    System.out.println("   FAILED: " + test.getDisplayName() + " | Reason: " + reason);
+                } else {
+                    System.out.println("   PASSED: " + test.getDisplayName());
+                }
+            }
+            System.out.println();
+        });
 
         System.out.println("=======================================================");
-        System.out.println("                  All tests complete.");
+        if (summary.getTestsFailedCount() == 0 && summary.getTestsFoundCount() > 0) {
+            System.out.println("           All tests passed successfully!          ");
+        } else if (summary.getTestsFoundCount() == 0) {
+            System.out.println("              No tests were found.               ");
+        } else {
+            System.out.println("              Some tests failed.               ");
+        }
         System.out.println("=======================================================");
     }
 }
+

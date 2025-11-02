@@ -10,7 +10,7 @@ The centralized `build.xml` file is configured to handle all project workflow st
 
 * **Cleanup & Setup:** Deleting old artifacts (`clean`) and creating output directories.
 * **Flexible Compilation:** Compiling the entire codebase (`compile`) or a single, specific file (`compile-file`).
-* **Execution & Testing:** Running all integrated test suites via the `MasterTestRunner` (`execute-main`).
+* **Execution & Testing:** Running all integrated test suites via the `Main` (`execute-main`).
 * **Documentation:** Generating Javadoc HTML documentation (`javadoc`).
 * **Packaging:** Creating two distinct JAR files in `dist/`: one for **compiled classes** and one for **documentation**.
 
