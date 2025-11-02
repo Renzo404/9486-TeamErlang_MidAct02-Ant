@@ -19,7 +19,7 @@ class MedianOfTwoSortedArraysTest {
 
     @Test
     void testFindMedianSortedArrays_differentSizes() {
-        assertEquals(3.0, solver.findMedianSortedArrays(new int[]{1, 2, 3, 4, 5}, new int[]{6, 7, 8, 9, 10}));
-        assertEquals(4.5, solver.findMedianSortedArrays(new int[]{1, 2, 3, 4, 5, 6}, new int[]{7, 8, 9}));
+        assertEquals(5.5, solver.findMedianSortedArrays(new int[]{1, 2, 3, 4, 5}, new int[]{6, 7, 8, 9, 10}));
+        assertEquals(5.0, solver.findMedianSortedArrays(new int[]{1, 2, 3, 4, 5, 6}, new int[]{7, 8, 9}));
     }
 }
