@@ -1,6 +1,15 @@
 package Abluyon_Kimpay.M2_AddTwoNumbers;
 
+import java.util.List;
+
 public class AddTwoNumbers {
+    public static class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode() {}
+        public ListNode(int val) { this.val = val; }
+        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
