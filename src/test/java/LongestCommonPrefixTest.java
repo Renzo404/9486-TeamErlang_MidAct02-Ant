@@ -1,3 +1,4 @@
+package test.java;
 import DelaCruz_Mabalot.E14_LongestCommonPrefix.LongestCommonPrefix;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

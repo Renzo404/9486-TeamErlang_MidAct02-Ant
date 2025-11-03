@@ -8,8 +8,8 @@
     <property name="doc.dir" value="doc"/>
     <property name="lib.dir" value="target/dependency"/>
 
-    <property name="main.class.name" value="MainMenu"/>
-    <property name="class" value="MainMenu"/>
+    <property name="main.class.name" value="Main"/>
+    <property name="class" value="Main"/>
     <property name="jar.name.classes" value="LeetCodeSolutions.jar"/>
     <property name="jar.name.docs" value="LeetCodeDocs.jar"/>
 

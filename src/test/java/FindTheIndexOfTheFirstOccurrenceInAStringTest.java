@@ -1,3 +1,5 @@
+package test.java;
+
 import DelaCruz_Mabalot.E28_FindTheIndexOfTheFirstOccurrenceInAString.FindTheIndexOfTheFirstOccurrenceInAString;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

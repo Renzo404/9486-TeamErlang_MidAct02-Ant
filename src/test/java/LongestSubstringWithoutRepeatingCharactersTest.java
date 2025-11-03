@@ -1,3 +1,4 @@
+package test.java;
 import DelaCruz_Mabalot.M3_LongestSubstringWithoutRepeatingCharacters.LongestSubstringWithoutRepeatingCharacters;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
