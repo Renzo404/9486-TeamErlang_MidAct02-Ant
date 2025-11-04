@@ -1,5 +1,15 @@
 package array.E26_RemoveDuplicatesFromSortedArray;
 
+/**
+ * Solves LeetCode problem 26: Remove Duplicates from Sorted Array.
+ * <p>
+ * Removes duplicates from a sorted integer array in place and returns
+ * the count of unique elements.
+ *
+ * @see <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/">LeetCode Problem 26</a>
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
+ */
 public class RemoveDuplicatesFromSortedArray {
 
     /**
@@ -8,8 +18,6 @@ public class RemoveDuplicatesFromSortedArray {
      *
      * @param nums The input array of integers, which is assumed to be sorted.
      * @return The number of unique elements (k) in the array.
-     * @author Dela Cruz, Angelika
-     * @author Mabalot, Rod Clarenz
      */
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) return 0;

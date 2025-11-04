@@ -2,7 +2,16 @@ package string.M3_LongestSubstringWithoutRepeatingCharacters;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * Solves LeetCode problem 3: Longest Substring Without Repeating Characters.
+ * <p>
+ * Uses a sliding window technique to find the length of the longest substring
+ * without any repeating characters in O(N) time complexity.
+ *
+ * @see <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">LeetCode Problem 3</a>
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
+ */
 public class LongestSubstringWithoutRepeatingCharacters {
 
     /**
@@ -11,8 +20,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
      *
      * @param s The input string from which to find the longest non-repeating substring.
      * @return The length of the longest substring without character repetition.
-     * @author Dela Cruz, Angelika
-     * @author Mabalot, Rod Clarenz
      */
     public int lengthOfLongestSubstring(String s) {
         Set<Character> seen = new HashSet<>();
