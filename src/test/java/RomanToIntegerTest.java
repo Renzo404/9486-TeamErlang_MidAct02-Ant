@@ -1,6 +1,6 @@
 package test.java;
 
-import Abluyon_Kimpay.E13_RomanToInteger.RomanToInteger;
+import string.E13_RomanToInteger.RomanToInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

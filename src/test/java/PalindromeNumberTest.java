@@ -1,6 +1,6 @@
 package test.java;
 
-import Abluyon_Kimpay.E9_PalindromeNumber.PalindromeNumber;
+import math.E9_PalindromeNumber.PalindromeNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;

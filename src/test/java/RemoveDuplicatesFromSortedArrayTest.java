@@ -1,5 +1,5 @@
 package test.java;
-import DelaCruz_Mabalot.E26_RemoveDuplicatesFromSortedArray.RemoveDuplicatesFromSortedArray;
+import array.E26_RemoveDuplicatesFromSortedArray.RemoveDuplicatesFromSortedArray;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

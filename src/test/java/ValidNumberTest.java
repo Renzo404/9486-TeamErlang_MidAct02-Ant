@@ -1,6 +1,6 @@
 package test.java;
 
-import Abluyon_Kimpay.H65_ValidNumber.ValidNumber;
+import string.H65_ValidNumber.ValidNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;

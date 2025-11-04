@@ -1,5 +1,5 @@
 package test.java;
-import DelaCruz_Mabalot.M2_AddTwoNumbers.AddTwoNumbers;
+import linkedlist.M2_AddTwoNumbers.AddTwoNumbers;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

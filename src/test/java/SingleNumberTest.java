@@ -1,6 +1,6 @@
 package test.java;
 
-import Abluyon_Kimpay.E136_SingleNumber.SingleNumber;
+import array.E136_SingleNumber.SingleNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

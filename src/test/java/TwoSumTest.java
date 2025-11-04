@@ -1,6 +1,6 @@
 package test.java;
 
-import Abluyon_Kimpay.E1_TwoSum.TwoSum;
+import array.E1_TwoSum.TwoSum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
