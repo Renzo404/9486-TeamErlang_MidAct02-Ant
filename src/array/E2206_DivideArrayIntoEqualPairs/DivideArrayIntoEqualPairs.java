@@ -1,8 +1,22 @@
 package array.E2206_DivideArrayIntoEqualPairs;
 
+/**
+     * Determines whether a given integer {@code n} is a power of three.
+     *
+     * @param n the integer to check
+     * @return {@code true} if {@code n} is a power of three, otherwise {@code false}
+     */
+
 import java.util.HashMap;
 
 public class DivideArrayIntoEqualPairs {
+
+    /**
+     * Entry point for manual testing.
+     * <p>Builds a frequency map and checks if every element count is even.</p>
+     *
+     * @param args command-line arguments (not used)
+     */
 
     public boolean divideArray(int[] nums) {
         HashMap<Integer, Integer> freq = new HashMap<>();
