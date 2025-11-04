@@ -12,6 +12,7 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectPackage;
 /**
  * An automated JUnit 5 test runner for the ITCS 311L course project.
@@ -36,14 +37,32 @@ public class Main {
         launcher.registerTestExecutionListeners(summaryListener);
         launcher.registerTestExecutionListeners(collectorListener);
 
-        // 2. Discover all tests in the "test.java" package
-        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
-                .selectors(
-                        selectPackage("test.java")
-                )
-                .build();
 
-        System.out.println("Discovering and running tests...\n");
+        // 2. Discover tests based on the 'test.class' system property
+        System.out.println("Discovering tests...");
+
+        // Read the property we set in Ant's build.xml
+        String singleTestClass = System.getProperty("test.class");
+
+        LauncherDiscoveryRequestBuilder builder = LauncherDiscoveryRequestBuilder.request();
+
+        if (singleTestClass != null && !singleTestClass.isEmpty()) {
+            // If the property is set, run ONLY that single test class
+            System.out.println("Running single test: test.java." + singleTestClass + "\n");
+            builder.selectors(
+                    selectClass("test.java." + singleTestClass)
+            );
+        } else {
+            // If no property is set, run all tests in the package (default behavior)
+            System.out.println("Running all tests in package: test.java\n");
+            builder.selectors(
+                    selectPackage("test.java")
+            );
+        }
+
+        LauncherDiscoveryRequest request = builder.build();
+
+        System.out.println("Running tests...\n");
 
         // 3. Execute the tests and measure duration
         Instant startTime = Instant.now();
