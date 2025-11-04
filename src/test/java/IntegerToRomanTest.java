@@ -7,13 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntegerToRomanTest {
 
-    private IntegerToRoman.Solution solution;
+    private IntegerToRoman solution;
 
     @BeforeEach
     public void setUp() {
-        // We need to instantiate the outer class to create an instance of the inner Solution class
-        IntegerToRoman outerInstance = new IntegerToRoman();
-        solution = outerInstance.new Solution();
+        solution = new IntegerToRoman();
     }
 
     @Test
