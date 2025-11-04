@@ -1,6 +1,6 @@
 package test.java;
 
-import Aquino_Barrera.E2206_DivideArrayIntoEqualPairs.DivideArrayIntoEqualPairs;
+import array.E2206_DivideArrayIntoEqualPairs.DivideArrayIntoEqualPairs;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

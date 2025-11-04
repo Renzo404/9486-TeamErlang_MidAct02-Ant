@@ -1,5 +1,5 @@
 package test.java;
-import Aquino_Barrera.H42_TrappingRainWater.*;
+import array.H42_TrappingRainWater.TrappingRainWater;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class TrappingRainWaterTest {

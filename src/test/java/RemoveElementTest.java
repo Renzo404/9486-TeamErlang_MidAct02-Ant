@@ -1,6 +1,6 @@
 package test.java;
 
-import Aquino_Barrera.E27_RemoveElement.*;
+import array.E27_RemoveElement.RemoveElement;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

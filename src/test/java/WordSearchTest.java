@@ -1,7 +1,8 @@
 package test.java;
 
-import Aquino_Barrera.M79_WordSearch.WordSearch;
 import org.junit.jupiter.api.Test;
+import string.M79_WordSearch.WordSearch;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WordSearchTest {

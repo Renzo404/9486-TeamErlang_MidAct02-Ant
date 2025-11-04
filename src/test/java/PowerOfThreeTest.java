@@ -1,6 +1,6 @@
 package test.java;
 
-import Aquino_Barrera.E326_PowerOfThree.PowerOfThree;
+import math.E326_PowerOfThree.PowerOfThree;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,6 +1,6 @@
 package test.java;
 
-import Aquino_Barrera.M2401_LongestNiceSubarray.LongestNiceSubarray;
+import array.M2401_LongestNiceSubarray.LongestNiceSubarray;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
