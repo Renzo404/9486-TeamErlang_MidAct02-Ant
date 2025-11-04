@@ -1,5 +1,13 @@
 package string.H65_ValidNumber;
-
+/**
+ * Solves LeetCode problem 65: Valid Number.
+ * <p>
+ * Determines if a given string represents a valid number by validating
+ * its structure and ensuring correct placement of digits, signs,
+ * decimal points, and exponents.
+ *
+ * @see <a href="https://leetcode.com/problems/valid-number/">LeetCode Problem 65</a>
+ */
 public class ValidNumber {
     /**
      * Checks if a string represents a valid number.

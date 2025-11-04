@@ -1,5 +1,14 @@
 package array.H4_MedianOfTwoSortedArrays;
-
+/**
+ * Solves LeetCode problem 4: Median of Two Sorted Arrays.
+ * <p>
+ * Finds the median of two sorted arrays using a binary search approach,
+ * achieving O(log(min(m, n))) time complexity.
+ *
+ * @see <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">LeetCode Problem 4</a>
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
+ */
 public class MedianOfTwoSortedArrays {
     /**
      * Finds the median of two sorted arrays, `nums1` and `nums2`, using a binary search approach to achieve
@@ -11,8 +20,6 @@ public class MedianOfTwoSortedArrays {
      * @return The median of the two combined sorted arrays as a double.
      * @throws IllegalArgumentException if the input arrays are not sorted (though typical LeetCode
      * implementation assumes they are).
-     * @author Dela Cruz, Angelika
-     * @author Mabalot, Rod Clarenz
      */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {

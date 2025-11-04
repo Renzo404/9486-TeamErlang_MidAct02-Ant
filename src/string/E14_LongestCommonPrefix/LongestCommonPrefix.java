@@ -1,5 +1,14 @@
 package string.E14_LongestCommonPrefix;
-
+/**
+ * Solves LeetCode problem 14: Longest Common Prefix.
+ * <p>
+ * Finds the longest common prefix string among an array of strings using
+ * a horizontal scanning approach.
+ *
+ * @see <a href="https://leetcode.com/problems/longest-common-prefix/">LeetCode Problem 14</a>
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
+ */
 public class LongestCommonPrefix {
     /**
      * Finds the longest common prefix string amongst an array of strings. The method uses a horizontal scanning
@@ -9,8 +18,6 @@ public class LongestCommonPrefix {
      * @param strs The input array of strings.
      * @return The longest common prefix string. Returns an empty string ("")
      * if there is no common prefix or the input array is empty.
-     * @author Dela Cruz, Angelika
-     * @author Mabalot, Rod Clarenz
      */
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {

@@ -1,5 +1,15 @@
 package string.E28_FindTheIndexOfTheFirstOccurrenceInAString;
 
+/**
+ * Solves LeetCode problem 28: Find the Index of the First Occurrence in a String.
+ * <p>
+ * Finds the index of the first occurrence of a substring within another string
+ * using a simple sliding window approach.
+ *
+ * @see <a href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/">LeetCode Problem 28</a>
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
+ */
 public class FindTheIndexOfTheFirstOccurrenceInAString {
     /**
      * Finds the index of the first occurrence of the `needle` string within the `haystack` string. This implementation
