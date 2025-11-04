@@ -7,6 +7,9 @@ package linkedlist.M2_AddTwoNumbers;
  * single digit. Add the two numbers and return the sum as a linked list.
  *
  * @see <a href="https://leetcode.com/problems/add-two-numbers/">LeetCode Problem 2</a>
+ *
+ * @author Dela Cruz, Angelika
+ * @author Mabalot, Rod Clarenz
  */
 public class AddTwoNumbers {
 
@@ -25,8 +28,6 @@ public class AddTwoNumbers {
      * @param l1 The head of the first linked list (number 1).
      * @param l2 The head of the second linked list (number 2).
      * @return The head of the resulting linked list, representing the sum of the two numbers.
-     * @author Dela Cruz, Angelika
-     * @author Mabalot, Rod Clarenz
      */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode temp = new ListNode(0);
