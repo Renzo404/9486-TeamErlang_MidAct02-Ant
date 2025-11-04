@@ -1,1 +1,0 @@
-package Abluyon_Kimpay.E136_PalindromeNumber;
