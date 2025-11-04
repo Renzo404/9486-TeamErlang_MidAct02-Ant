@@ -1,11 +1,11 @@
 package Aquino_Barrera.H42_TrappingRainWater;
 
 public class TrappingRainWater {
-      public static void main(String[] args) {
-        int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
+
+    // Testable method
+    public int trap(int[] height) {
         int left = 0, right = height.length - 1;
-        int leftMax = 0, rightMax = 0;
-        int trappedWater = 0;
+        int leftMax = 0, rightMax = 0, trappedWater = 0;
 
         while (left < right) {
             if (height[left] < height[right]) {
@@ -24,7 +24,13 @@ public class TrappingRainWater {
                 right--;
             }
         }
-
-        System.out.println(trappedWater);
+        return trappedWater;
+    }
+    // Optional: for manual testing
+    public static void main(String[] args) {
+        TrappingRainWater solver = new TrappingRainWater();
+        int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
+        System.out.println(solver.trap(height)); // Expected: 6
     }
 }
+

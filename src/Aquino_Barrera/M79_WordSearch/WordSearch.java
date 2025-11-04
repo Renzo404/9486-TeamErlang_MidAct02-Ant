@@ -1,45 +1,45 @@
 package Aquino_Barrera.M79_WordSearch;
 
 public class WordSearch {
-     public static void main(String[] args) {
+
+    public boolean exist(char[][] board, String word) {
+        int rows = board.length, cols = board[0].length;
+        boolean[][] visited = new boolean[rows][cols];
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (dfs(board, word, 0, r, c, visited)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean dfs(char[][] board, String word, int index, int r, int c, boolean[][] visited) {
+        if (index == word.length()) return true;
+        if (r < 0 || c < 0 || r >= board.length || c >= board[0].length) return false;
+        if (visited[r][c] || board[r][c] != word.charAt(index)) return false;
+
+        visited[r][c] = true;
+        boolean found = dfs(board, word, index + 1, r + 1, c, visited)
+                     || dfs(board, word, index + 1, r - 1, c, visited)
+                     || dfs(board, word, index + 1, r, c + 1, visited)
+                     || dfs(board, word, index + 1, r, c - 1, visited);
+        visited[r][c] = false;
+        return found;
+    }
+
+    // Optional manual test
+    public static void main(String[] args) {
+        WordSearch solver = new WordSearch();
         char[][] board = {
             {'A', 'B', 'C', 'E'},
             {'S', 'F', 'C', 'S'},
             {'A', 'D', 'E', 'E'}
         };
-        String word = "ABCCED";
-        boolean exists = false;
-
-        // Run word search
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (dfs(board, word, i, j, 0)) {
-                    exists = true;
-                    break;
-                }
-            }
-            if (exists) break;
-        }
-
-        System.out.println(exists);
-    }
-
-    // Depth-First Search Helper
-    private static boolean dfs(char[][] board, String word, int i, int j, int index) {
-        if (index == word.length()) return true;
-        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] != word.charAt(index)) {
-            return false;
-        }
-
-        char temp = board[i][j];
-        board[i][j] = '#'; // mark as visited
-
-        boolean found = dfs(board, word, i + 1, j, index + 1) ||
-                        dfs(board, word, i - 1, j, index + 1) ||
-                        dfs(board, word, i, j + 1, index + 1) ||
-                        dfs(board, word, i, j - 1, index + 1);
-
-        board[i][j] = temp; // unmark
-        return found;
+        System.out.println(solver.exist(board, "ABCCED")); // true
+        System.out.println(solver.exist(board, "SEE"));    // true
+        System.out.println(solver.exist(board, "ABCB"));   // false
     }
 }
